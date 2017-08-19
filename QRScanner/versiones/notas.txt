@@ -1,0 +1,6 @@
+Caracteristicas fisicas de un QR Code:
+1.- Dos colores normalmente blanco y negro
+2.- Tres cuadrados en las esquinas
+3.- Es un semi cuadrado
+4.- Tiene muchas esquinas con angulos de cuarenta y cinco grados
+5.- 

@@ -1,0 +1,47 @@
+El proyecto consta de un archivo scanner.py donde se encuentran todas las funcionalidades realizadas.
+
+Herramientas necesarias
+  El unico requisito es tener instalado opencv utilizable por python para ayudar con esto adjunto una liga al repositorio github del usuario JustDerb quien tiene un script para instalar facilmente opencv:
+  https://github.com/jayrambhia/Install-OpenCV/blob/master/Ubuntu/2.4/opencv2_4_2.sh   
+
+Instrucciones de uso
+  El uso del demo es bastante simple solo se acerca un QR code a la camara, una vez que lo detecte una imagen en la pantalla mostrada el QR Code binarizado y su posicion en la pantalla.
+
+Caracteristicas fisicas de un QR Code:
+1.- Dos colores normalmente blanco y negro
+2.- Tres cuadrados en las esquinas
+3.- Es un semi cuadrado
+4.- Tiene muchas esquinas con angulos de cuarenta y cinco grados
+5.- Sus esquinas con patrones forman un triangulo
+
+Partes a mejorar
+1.- Implementar un blur adaptativo para engordar los puntos de las esquinas
+2.- Implementar un algoritmo mas realista para encontrar las esquinas
+3.- Disminuir el espacio de busqueda buscando mejores caracteristicas en con el calculo de los gradientes de las esquinas o eliminar el calculo de gradientes pues produce perdida de tiempo
+3.- Reducir el error en la busqueda de patrones de las esquinas eliminando el ruido que se produce al calcular el error de la formula 
+4.- Posiblemente implementar un grupo de mallas en horizontal y vertical respecto al QR code para obtener los valores de la matriz
+5.- Buscar una libreria para decodificar los codigos Solomon
+6.- Arregla las distorsiones que ocurren al voltear el QR code
+
+Funcionamiento
+  Dado que el proyecto es solo un demo que encuentra la posicion de un QR code y verifica que en realidad sea uno, el funcionamiento de este es muy simple
+El programa generado se puede dividir en dos partes, la primera que genera un preprocesamiento para encontrar con mayor facilidad espacios en los que puede haber un codigo QR
+
+    Se obtiene un "frame" de la camara.
+    Se modifica su tamano
+    Se convierte a escala de grises.
+    Se calcula el gradiente en vertical y horizontal utilizando una mascara de Sobel.
+    Se hace una copia de la imagen.
+    Se aplica un filtro de media a la copia de la imagen.
+    Se resta la copia con filtro de la media a la imagen original.
+    Se aplica un filtro Blur por ahora la intensidad del filtro es constante pero se buscara a futuro que esta cambie dependiendo de la mancha que se forma.
+    Se aplica un filtro umbral.
+    Se recorre cada mancha con un BFS y se encuentran las dimensiones de un rectangulo que rode cada mancha.
+    Se recorta el pedazo donde esta el c?digo QR en la imagen original la que tiene el tama?o original, que sera nuestra nueva imagen de trabajo. 
+    Se modifica el tamano de la nueva imagen a 128x128.
+    Se aplica un filtro para mejorar el contraste utilizando histogramas.
+    Despu?s de recorre cada fila de la imagen y se restan los vecinos de la derecha y de la izquierda de cada pixel, a este valor se le aplica un umbral para decidir     Se recorre cada fila buscando las esquinas del codigo QR que tienen un patron de blancos y negros parecido a este: Negro, Blanco, Negro, Negro, Negro, Blanco Negro. 
+    Se comprueba que las esquinas tengan las caracter?sticas deseadas
+
+Mas informacion del proyecto:
+  http://maxkalavera.blogspot.com/2013/05/proyecto-final-lector-de-codigos-qr.html

@@ -1,0 +1,6 @@
+Herramientas necesarias
+  El unico requisito es tener instalado opencv utilizable por python para ayudar con esto adjunto una liga al repositorio github del usuario JustDerb quien tiene un script para instalar facilmente opencv en algunas distribuciones de Ubuntu, ademas deje una copia del script en la carpeta opencv, remarcando que la autoria del script es del usuario JustDerb.
+
+  Enlace a la cuenta del usuario JustDerb: https://github.com/JustDerb
+  Enlace a al script para instalar opencv: https://github.com/jayrambhia/Install-OpenCV/blob/master/Ubuntu/2.4/opencv2_4_2.sh   
+

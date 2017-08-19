@@ -1,0 +1,9 @@
+Para encontrar los 3 recuadros de las ezquinas:
+     Propuesta 1:
+          Se verifica cada linea en vertical buscando patrones parecidos
+	  Con los patrones encontrados en vertical se buscan en horizontal patrones para que formen una cruz
+	  Dichos patrones en cruz se pintan de verde
+	  Si los patrones en cruz forman un triangulo cuadrado con muy altra probabilidad son las esquinas
+
+	  Tomar en cuenta al verificar patrones:
+	  	
